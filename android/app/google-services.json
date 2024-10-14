@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "248162082210",
+    "project_id": "fir-l-221e1",
+    "storage_bucket": "fir-l-221e1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:248162082210:android:68149ef75863a6de7b66fb",
+        "android_client_info": {
+          "package_name": "com.example.firebasel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6PUJe5b7kP67g0FBZpQS-22WULvv8dFk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
