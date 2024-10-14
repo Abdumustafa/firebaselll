@@ -5,7 +5,7 @@ import 'package:firebasel/pages/signup.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
-   WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -24,13 +24,11 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const SignUp(),
+      home: const Login(),
       routes: {
-        "signup" : (context) => const SignUp() , 
-        "login" : (context) => const Login()
+        "signup": (context) => const SignUp(),
+        "login": (context) => const Login()
       },
     );
   }
 }
-
-

@@ -18,87 +18,73 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //   body: Container(
-      //     padding: const EdgeInsets.all(20),
-      //     child: ListView(children: [
-      //       Column(
-      //         crossAxisAlignment: CrossAxisAlignment.start,
-      //         children: [
-      //           Container(height: 50),
-      //           const CustomLogoAuth(),
-      //           Container(height: 20),
-      //           const Text("SignUp",
-      //               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
-      //           Container(height: 10),
-      //           const Text("SignUp To Continue Using The App",
-      //               style: TextStyle(color: Colors.grey)),
-      //           Container(height: 20),
-      //           const Text(
-      //             "username",
-      //             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-      //           ),
-      //           Container(height: 10),
-      //           CustomTextForm(
-      //               hinttext: "ُEnter Your username", mycontroller: username),
-      //           Container(height: 20),
-      //           const Text(
-      //             "Email",
-      //             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-      //           ),
-      //           Container(height: 10),
-      //           CustomTextForm(
-      //               hinttext: "ُEnter Your Email", mycontroller: email),
-      //           Container(height: 10),
-      //           const Text(
-      //             "Password",
-      //             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-      //           ),
-      //           Container(height: 10),
-      //           CustomTextForm(
-      //               hinttext: "ُEnter Your Password", mycontroller: email),
-      //           Container(
-      //             margin: const EdgeInsets.only(top: 10, bottom: 20),
-      //             alignment: Alignment.topRight,
-      //             child: const Text(
-      //               "Forgot Password ?",
-      //               style: TextStyle(
-      //                 fontSize: 14,
-      //               ),
-      //             ),
-      //           ),
-      //         ],
-      //       ),
-      //       CustomButtonAuth(title: "SignUp", onPressed: () {}),
-      //       Container(height: 20),
-
-      //       Container(height: 20),
-      //       // Text("Don't Have An Account ? Resister" , textAlign: TextAlign.center,)
-      //       InkWell(
-      //         onTap: () {
-      //           Navigator.of(context).pushNamed("login") ;
-      //         },
-      //         child: const Center(
-      //           child: Text.rich(TextSpan(children: [
-      //             TextSpan(
-      //               text: "Have An Account ? ",
-      //             ),
-      //             TextSpan(
-      //                 text: "Login",
-      //                 style: TextStyle(
-      //                     color: Colors.orange, fontWeight: FontWeight.bold)),
-      //           ])),
-      //         ),
-      //       )
-      //     ]),
-      //   ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-              child: CustomTextForm(
-                  hinttext: "ُEnter Your Password", mycontroller: email)),
-        ],
+      body: Container(
+        padding: const EdgeInsets.all(5),
+        child: ListView(children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(
+                height: 50,
+              ),
+              const Align(
+                alignment: Alignment.center,
+                child: Text(
+                  "Sign in",
+                  style: TextStyle(fontSize: 50),
+                ),
+              ),
+              const SizedBox(
+                height: 100,
+              ),
+              CustomTextForm(hinttext: "UserName", mycontroller: username),
+              const SizedBox(
+                height: 50,
+              ),
+              CustomTextForm(hinttext: "Email", mycontroller: email),
+              const SizedBox(
+                height: 50,
+              ),
+              CustomTextForm(hinttext: "Password", mycontroller: password),
+              InkWell(
+                onTap: () {
+                  Navigator.of(context).pushNamed("signup");
+                },
+                child: const Padding(
+                  padding: EdgeInsets.all(12.0),
+                  child: Align(
+                      alignment: Alignment.centerRight,
+                      child: Text("Forget Password")),
+                ),
+              ),
+              const SizedBox(
+                height: 50,
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CustomButtonAuth(
+                title: "Sign in ",
+                onPressed: () {},
+              ),
+              const SizedBox(
+                width: 50,
+              ),
+            ],
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.of(context).pushNamed("login");
+            },
+            child: const Padding(
+              padding: EdgeInsets.all(12.0),
+              child:
+                  Align(alignment: Alignment.centerRight, child: Text("login")),
+            ),
+          ),
+        ]),
       ),
     );
   }

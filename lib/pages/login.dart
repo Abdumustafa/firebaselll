@@ -1,5 +1,4 @@
 import 'package:firebasel/components/custombuttonauth.dart';
-import 'package:firebasel/components/customlogoauth.dart';
 import 'package:firebasel/components/textformfield.dart';
 import 'package:flutter/material.dart';
 
@@ -23,80 +22,66 @@ class _LoginState extends State<Login> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(height: 50),
-              const CustomLogoAuth(),
-              Container(height: 20),
-              const Text("Login",
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
-              Container(height: 10),
-              const Text("Login To Continue Using The App",
-                  style: TextStyle(color: Colors.grey)),
-              Container(height: 20),
-              const Text(
-                "Email",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              const SizedBox(
+                height: 50,
               ),
-              Container(height: 10),
-              CustomTextForm(
-                  hinttext: "ُEnter Your Email", mycontroller: email),
-              Container(height: 10),
-              const Text(
-                "Password",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-              ),
-              Container(height: 10),
-              CustomTextForm(
-                  hinttext: "ُEnter Your Password", mycontroller: email),
-              Container(
-                margin: const EdgeInsets.only(top: 10, bottom: 20),
-                alignment: Alignment.topRight,
-                child: const Text(
-                  "Forgot Password ?",
-                  style: TextStyle(
-                    fontSize: 14,
-                  ),
+              const Align(
+                alignment: Alignment.center,
+                child: Text(
+                  "login",
+                  style: TextStyle(fontSize: 50),
                 ),
+              ),
+              const SizedBox(
+                height: 100,
+              ),
+              CustomTextForm(hinttext: "Email", mycontroller: email),
+              const SizedBox(
+                height: 50,
+              ),
+              CustomTextForm(hinttext: "Password", mycontroller: password),
+              InkWell(
+                onTap: () {
+                  Navigator.of(context).pushNamed("signup");
+                },
+                child: const Padding(
+                  padding: EdgeInsets.all(12.0),
+                  child: Align(
+                      alignment: Alignment.centerRight,
+                      child: Text("Forget Password")),
+                ),
+              ),
+              const SizedBox(
+                height: 50,
               ),
             ],
           ),
-          CustomButtonAuth(title: "login", onPressed: () {}),
-          Container(height: 20),
-
-          // MaterialButton(
-          //     height: 40,
-          //     shape: RoundedRectangleBorder(
-          //         borderRadius: BorderRadius.circular(20)),
-          //     color: Colors.red[700],
-          //     textColor: Colors.white,
-          //     onPressed: () {},
-          //     child: Row(
-          //       mainAxisAlignment: MainAxisAlignment.center,
-          //       children: [
-          //         const Text("Login With Google  "),
-          //         Image.asset(
-          //           "images/4.png",
-          //           width: 20,
-          //         )
-          //       ],
-          //     )),
-          // Container(height: 20),
-          // Text("Don't Have An Account ? Resister" , textAlign: TextAlign.center,)
-          // InkWell(
-          //   onTap: () {
-          //     Navigator.of(context).pushNamed("signup");
-          //   },
-          //   child: const Center(
-          //     child: Text.rich(TextSpan(children: [
-          //       TextSpan(
-          //         text: "Don't Have An Account ? ",
-          //       ),
-          //       TextSpan(
-          //           text: "Register",
-          //           style: TextStyle(
-          //               color: Colors.orange, fontWeight: FontWeight.bold)),
-          //     ])),
-          //   ),
-          // )
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CustomButtonAuth(
+                title: "login",
+                onPressed: () {},
+              ),
+              const SizedBox(
+                width: 50,
+              ),
+              CustomButtonAuth(
+                title: "login with google",
+                onPressed: () {},
+              ),
+            ],
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.of(context).pushNamed("signup");
+            },
+            child: const Padding(
+              padding: EdgeInsets.all(12.0),
+              child: Align(
+                  alignment: Alignment.centerRight, child: Text("Register")),
+            ),
+          ),
         ]),
       ),
     );
