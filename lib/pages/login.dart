@@ -1,3 +1,5 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebasel/components/custombuttonauth.dart';
 import 'package:firebasel/components/textformfield.dart';
 import 'package:flutter/material.dart';
@@ -61,7 +63,36 @@ class _LoginState extends State<Login> {
             children: [
               CustomButtonAuth(
                 title: "login",
-                onPressed: () {},
+                onPressed: () async {
+                  try {
+                    final credential = await FirebaseAuth.instance
+                        .signInWithEmailAndPassword(
+                            email: email.text, password: password.text);
+                    Navigator.of(context).pushReplacementNamed("homepage");
+                  } on FirebaseAuthException catch (e) {
+                    if (e.code == 'user-not-found') {
+                      print('No user found for that email.');
+                      AwesomeDialog(
+            context: context,
+            dialogType: DialogType.error,
+            animType: AnimType.rightSlide,
+            title: 'Error',
+            desc: 'No user found for that email.',
+           
+            )..show();
+                    } else if (e.code == 'wrong-password') {
+                      print('Wrong password provided for that user.');
+                      AwesomeDialog(
+            context: context,
+            dialogType: DialogType.error,
+            animType: AnimType.rightSlide,
+            title: 'Error',
+            desc: 'Wrong password provided for that user.',
+        
+            )..show();
+                    }
+                  }
+                },
               ),
               const SizedBox(
                 width: 50,
